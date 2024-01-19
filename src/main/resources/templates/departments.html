@@ -8,37 +8,34 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Customers</h3>
+                        <h3>Departments</h3>
                     </div>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Name</th>
                             <th>Code</th>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Address</th>
+                            <th>Country</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-
                         <tbody>
-                        <tr th:each="cust : ${customers}">
-                            <td th:text="${cust.id}"></td>
-                            <td th:text="${cust.code}"></td>
-                            <td th:text="${cust.firstName}"></td>
-                            <td th:text="${cust.lastName}"></td>
-                            <td th:text="${cust.address}"></td>
+                        <tr th:each="dep : ${departments}">
+                            <td th:text="${dep.id}"></td>
+                            <td th:text="${dep.name}"></td>
+                            <td th:text="${dep.code}"></td>
+                            <td th:text="${dep.country}"></td>
                             <td>
-                                <a th:href="@{'/customer/delete?id='+ ${cust.id}}"
+                                <a th:href="@{'/department/delete?id='+ ${dep.id}}"
                                    class="btn btn-outline-danger">Delete
                                 </a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                    <a th:href="@{/customer/save-customer}"
-                    class="btn btn-outline-primary">Create
+                    <a th:href="@{/department/create-department}"
+                       class="btn btn-outline-primary">Create Department
                     </a>
                 </div>
             </div>

@@ -8,37 +8,39 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Customers</h3>
+                        <h3>Employees</h3>
                     </div>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Code</th>
                             <th>FirstName</th>
                             <th>LastName</th>
+                            <th>PhoneNo</th>
                             <th>Address</th>
+                            <th>CubicleNo</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr th:each="cust : ${customers}">
-                            <td th:text="${cust.id}"></td>
-                            <td th:text="${cust.code}"></td>
-                            <td th:text="${cust.firstName}"></td>
-                            <td th:text="${cust.lastName}"></td>
-                            <td th:text="${cust.address}"></td>
+                        <tr th:each="emp : ${employees}">
+                            <td th:text="${emp.id}"></td>
+                            <td th:text="${emp.firstName}"></td>
+                            <td th:text="${emp.lastName}"></td>
+                            <td th:text="${emp.phoneNumber}"></td>
+                            <td th:text="${emp.address}"></td>
+                            <td th:text="${emp.cubicleNo}"></td>
                             <td>
-                                <a th:href="@{'/customer/delete?id='+ ${cust.id}}"
+                                <a th:href="@{'/employee/delete?id='+ ${emp.id}}"
                                    class="btn btn-outline-danger">Delete
                                 </a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                    <a th:href="@{/customer/save-customer}"
-                    class="btn btn-outline-primary">Create
+                    <a th:href="@{/employee/create-employee}"
+                       class="btn btn-outline-primary">Create Employee
                     </a>
                 </div>
             </div>

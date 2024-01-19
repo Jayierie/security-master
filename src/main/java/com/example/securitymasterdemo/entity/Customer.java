@@ -17,6 +17,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotBlank(message = "Code cannot be empty!")
     @Size(min = 2,max = 5,message = "code must be between 2 and 5.")
     @Pattern(regexp = "[A-Za-z]*",message = "Code cannot contain illegal characters.")
@@ -30,7 +31,7 @@ public class Customer {
     @Pattern(regexp = "[A-Za-z-]*",message = "Last Name cannot contain illegal characters.")
     private String lastName;
 
-    @NotBlank(message = "First Name cannot be blank.")
+    @NotBlank(message = "Address cannot be blank.")
     @Pattern(regexp = "[\\w .\\-/,]*",message = "Address cannot contain illegal characters.")
     private String address;
 

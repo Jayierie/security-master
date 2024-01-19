@@ -26,7 +26,14 @@ public class SecurityConfig {
             c.requestMatchers("/bootstrap/**", "/").permitAll()
                     .requestMatchers("/customer/list-customers")
                     .hasAnyRole("CUSTOMER_READ", "SUPER_ADMIN")
-                    .requestMatchers("/customer**").hasRole("SUPER_ADMIN")
+                    .requestMatchers("/customer/**").hasRole("SUPER_ADMIN")
+                    .requestMatchers("/employee/**")
+                    .hasAnyRole("SUPER_ADMIN","EMPLOYEE_ADMIN")
+                    .requestMatchers("/department/list-departments")
+                    .hasAnyRole("DEPARTMENT_READ","SUPER_ADMIN")
+                    .requestMatchers("/department/create-department")
+                    .hasAnyRole("SUPER_ADMIN","DEPARTMENT_WRITE")
+                    .requestMatchers("/department/**").hasRole("SUPER_ADMIN")
                     .anyRequest().authenticated();
         });
 
